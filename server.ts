@@ -47,7 +47,11 @@ app.use(express.json());
 app.use(session);
 
 if (process.env.NODE_ENV === "production") {
-  app.use(express.static(path.resolve(__dirname, "public")));
+  const corsOptions = {
+    origin: ["https://scooter-next-js-f19947913171.herokuapp.com"],
+    credentials: true,
+  };
+  app.use(cors(corsOptions));
 } else {
   const corsOptions = {
     origin: [
