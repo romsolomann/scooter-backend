@@ -48,7 +48,7 @@ app.use(session);
 
 if (process.env.NODE_ENV === "production") {
   const corsOptions = {
-    origin: ["https://scooter-next-js-f19947913171.herokuapp.com"],
+    origin: [""],
     credentials: true,
   };
   app.use(cors(corsOptions));
@@ -59,7 +59,6 @@ if (process.env.NODE_ENV === "production") {
       "http://localhost:8080",
       "http://127.0.0.1:3000",
       "http://localhost:3000",
-      "https://scooter-next-js-f19947913171.herokuapp.com",
     ],
     credentials: true,
   };
@@ -79,8 +78,6 @@ app.use("/api/users", userRoutes);
 app.use("/api/scooters", scooterRoutes);
 app.use("/api/failures", failureRoutes);
 app.use("/api/parkings", parkingRoutes);
-
-// connectSockets(server, session);
 
 // app.get("/**", (req: Request, res: Response) => {
 //   res.sendFile(path.join(__dirname, "public", "index.html"));
