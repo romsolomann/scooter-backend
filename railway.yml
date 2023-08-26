@@ -1,0 +1,11 @@
+# railway.yml
+
+services:
+  - name: backend
+    type: web
+    src: .
+    env: production
+    build:
+      env:
+        - NODE_ENV=production
+      command: npm run server:prod
