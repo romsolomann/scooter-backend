@@ -47,11 +47,7 @@ app.use(express.json());
 app.use(session);
 
 if (process.env.NODE_ENV === "production") {
-  const corsOptions = {
-    origin: [""],
-    credentials: true,
-  };
-  app.use(cors(corsOptions));
+  app.use(express.static(path.resolve(__dirname, "public")));
 } else {
   const corsOptions = {
     origin: [
