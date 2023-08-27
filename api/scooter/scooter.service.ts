@@ -182,7 +182,7 @@ function _buildCriteria(filterBy: ScooterFilter) {
   if (filterBy.polygon) {
     const polygon: Polygon = filterBy.polygon;
 
-    criteria.location = {
+    const geoWithin = {
       $geoWithin: {
         $geometry: {
           type: "Polygon",
@@ -192,6 +192,7 @@ function _buildCriteria(filterBy: ScooterFilter) {
         },
       },
     };
+    criteria.currentLocation = geoWithin;
   }
   if (filterBy.status) {
     criteria.status = filterBy.status
